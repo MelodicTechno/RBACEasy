@@ -1,9 +1,22 @@
 package src.role;
 
 import src.access.AccessHandler;
-import src.access.Level;
+import src.level.Level;
 
 public class Role {
-    private Level level;
-    private AccessHandler access;
+    private final Level level;
+    private final AccessHandler access;
+
+    public Role(Level level, AccessHandler access) {
+        this.level = level;
+        this.access = access;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public void getResource() {
+        access.getAccess();
+    }
 }
