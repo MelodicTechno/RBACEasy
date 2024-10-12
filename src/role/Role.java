@@ -17,6 +17,6 @@ public class Role {
     }
 
     public void getResource() {
-        access.getAccess();
+        this.access.getAccess();
     }
 }

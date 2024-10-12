@@ -1,10 +1,15 @@
 package src.access;
 
 import src.level.Level;
+import src.resource.Resource;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AccessHandler {
 
     private final Level level;
+    private ArrayList<Resource> resources;
 
     public AccessHandler(Level level) {
         this.level = level;
