@@ -2,6 +2,7 @@ package src.role;
 
 import src.access.AccessHandler;
 import src.level.Level;
+import src.resource.Resource;
 
 public class Role {
     private final Level level;
@@ -19,4 +20,10 @@ public class Role {
     public void getResource() {
         this.access.getAccess();
     }
+
+    public void creatResource(String resource) {
+        Resource newResource = new Resource(resource, this.level);
+        this.access.saveResource(newResource, newResource.getResourcePath());
+    }
+
 }

@@ -45,4 +45,8 @@ public class Resource implements Serializable {
             System.out.println("no resource found");
         }
     }
+
+    public String getResourcePath() {
+        return this.resourcePath;
+    }
 }

@@ -17,7 +17,7 @@ public class AccessHandler {
 
     private final Level level;
     private ArrayList<Resource> resources;
-    private ArrayList<Path> resourcePaths;
+    private final ArrayList<Path> resourcePaths;
 
 
     public AccessHandler(Level level) {
@@ -40,8 +40,8 @@ public class AccessHandler {
     public void updateResources() {
         String resourcePath = "files/" + level + '/';
         try (Stream<Path> paths = Files.walk(Paths.get(resourcePath))) {
-            paths.filter(Files::isRegularFile) // 只筛选文件
-                    .forEach(path -> resourcePaths.add(path.getFileName())); // 将文件名添加到列表
+            paths.filter(Files::isRegularFile)
+                    .forEach(path -> resourcePaths.add(path.getFileName()));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -51,10 +51,14 @@ public class AccessHandler {
         return this.resources;
     }
 
-    public static void saveResource(Resource resource, String filePath) {
+    public ArrayList<Path> getResourcePaths() {
+        return this.resourcePaths;
+    }
+
+    public void saveResource(Resource resource, String filePath) {
         try (FileOutputStream fileOut = new FileOutputStream(filePath);
              ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
-            objectOut.writeObject(resource); // 将对象写入文件
+            objectOut.writeObject(resource);
             System.out.println("Resource object has been saved.");
         } catch (IOException e) {
             System.err.println("Error saving the resource object: " + e.getMessage());
