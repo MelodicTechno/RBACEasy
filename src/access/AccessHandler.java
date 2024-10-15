@@ -1,6 +1,7 @@
 package src.access;
 
 import src.level.Level;
+import src.operation.Operator;
 import src.resource.Resource;
 
 import java.io.*;
@@ -18,6 +19,7 @@ public class AccessHandler {
     private List<Resource> resources;
     private final ArrayList<Path> resourcePaths;
     private final String resourceRoot;
+    private final Operator operator;
 
     public AccessHandler(Level level) {
         this.level = level;
@@ -25,6 +27,7 @@ public class AccessHandler {
         this.resources = new ArrayList<>();
         String rootPath = "files";
         this.resourceRoot = String.format("%s/%s/", rootPath, level);
+        this.operator = new Operator(this.level);
     }
 
     public void getAccess() {
@@ -96,8 +99,34 @@ public class AccessHandler {
         }
     }
 
+    public List<Resource> getResources() {
+        return this.resources;
+    }
+
     public Resource getResource(String filePath) {
         return null;
+    }
+
+    public void addResource(String name) throws IOException {
+        if (this.level == Level.high || this.level == Level.middle) {
+            Resource resource = this.operator.addResource(name);
+            this.resources.add(resource);
+            System.out.println("add " + name + " successfully");
+            System.out.println(resource.getResourcePath());
+        }
+    }
+
+    public void addResource(String name, Level level) throws IOException {
+        if (this.level == Level.high || this.level == Level.middle) {
+            Resource resource = this.operator.addResource(name, level);
+            this.resources.add(resource);
+            System.out.println("add " + name + " successfully");
+            System.out.println(resource.getResourcePath());
+        }
+    }
+
+    public List<Resource> setResources() {
+        return this.resources;
     }
 
 }

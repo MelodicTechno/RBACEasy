@@ -8,9 +8,11 @@ public class Role {
     private final Level level;
     private final AccessHandler access;
 
-    public Role(Level level, AccessHandler access) {
+    public String name;
+
+    public Role(Level level) {
         this.level = level;
-        this.access = access;
+        this.access = new AccessHandler(level);
     }
 
     public Level getLevel() {
@@ -26,4 +28,15 @@ public class Role {
         this.access.saveResource(newResource, newResource.getResourcePath());
     }
 
+    public AccessHandler getAccess() {
+        return this.access;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
