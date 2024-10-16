@@ -29,6 +29,11 @@ public class Boss extends User {
     }
 
     @Override
+    public Role getRole() {
+        return this.role;
+    }
+
+    @Override
     public List<JButton> getOperations() {
         return this.role.getAccess().getButtons();
     }

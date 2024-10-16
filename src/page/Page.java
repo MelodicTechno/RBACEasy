@@ -12,12 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Page extends JFrame {
-    private JPanel contentPane;
     private final Visitor defaultVisitor;
     private final Contributor defaultContributor;
     private final Boss defaultBoss;
 
-    List<User> users;
+    private final UserButton visitorButton;
+    private final UserButton contributorButton;
+    private final UserButton bossButton;
+
+    private List<User> users;
 
     public Page() {
         this.defaultVisitor = new Visitor("default visitor");
@@ -29,8 +32,16 @@ public class Page extends JFrame {
         this.users.add(new Boss());
         this.users.add(new Contributor());
 
-        this.contentPane = new JPanel();
+        this.visitorButton = new UserButton(this.defaultVisitor);
+        this.contributorButton = new UserButton(this.defaultContributor);
+        this.bossButton = new UserButton(this.defaultBoss);
 
+        JPanel contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+    }
+
+    public void addUser(User user) {
+        this.users.add(user);
     }
 
 }

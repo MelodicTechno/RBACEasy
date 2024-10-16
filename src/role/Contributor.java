@@ -22,6 +22,7 @@ public class Contributor extends User {
         this.role.setName(name);
     }
 
+    @Override
     public Role getRole() {
         return role;
     }
