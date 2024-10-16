@@ -1,15 +1,20 @@
 package src.role;
 
 import src.level.Level;
+import src.user.User;
 
+import javax.swing.*;
 import java.io.IOException;
+import java.util.List;
 
-public class Contributor {
+public class Contributor extends User {
 
     private final Role role;
+    private final JLabel label;
 
     public Contributor() {
         this.role = new Role(Level.middle);
+        this.label = new JLabel("Contributor");
     }
 
     public Contributor(String name) {
@@ -31,5 +36,14 @@ public class Contributor {
 
     public void getResource() {
         System.out.println(this.role.getAccess().getResources());
+    }
+
+    public JLabel getLabel() {
+        return this.label;
+    }
+
+    @Override
+    public List<JButton> getOperations() {
+        return this.role.getAccess().getButtons();
     }
 }

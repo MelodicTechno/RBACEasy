@@ -4,12 +4,12 @@ import src.level.Level;
 import src.operation.Operator;
 import src.resource.Resource;
 
+import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -21,6 +21,8 @@ public class AccessHandler {
     private final String resourceRoot;
     private final Operator operator;
 
+    private final List<JButton> buttons;
+
     public AccessHandler(Level level) {
         this.level = level;
         this.resourcePaths = new ArrayList<>();
@@ -28,6 +30,16 @@ public class AccessHandler {
         String rootPath = "files";
         this.resourceRoot = String.format("%s/%s/", rootPath, level);
         this.operator = new Operator(this.level);
+        JButton addButton = new JButton("Add");
+        JButton removeButton = new JButton("Remove");
+        JButton editButton = new JButton("Edit");
+        JButton getButton = new JButton("Get");
+        this.buttons = new ArrayList<>();
+
+        buttons.add(addButton);
+        buttons.add(removeButton);
+        buttons.add(editButton);
+        buttons.add(getButton);
     }
 
     public void getAccess() {
@@ -129,4 +141,30 @@ public class AccessHandler {
         return this.resources;
     }
 
+    public List<JButton> getButtons() {
+        int buttonIndex = AccessHandler.mapLevel(level);
+        List<JButton> buttons = new ArrayList<>();
+        for (int i = 0; i < buttonIndex; i++) {
+            buttons.add(this.buttons.get(i));
+        }
+        return buttons;
+    }
+
+    public static int mapLevel(Level level) {
+        switch (level) {
+            case low -> {
+                return 1;
+            }
+            case middle -> {
+                return 2;
+            }
+            case high -> {
+                return 4;
+            }
+            default ->
+            {
+                return 0;
+            }
+        }
+    }
 }

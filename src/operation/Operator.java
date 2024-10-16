@@ -3,13 +3,14 @@ package src.operation;
 import src.level.Level;
 import src.resource.Resource;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import javax.swing.*;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class Operator {
+
+    // the button to present the operation and the access
+    private final JButton addButton;
 
     public Level getLevel() {
         return level;
@@ -19,6 +20,7 @@ public class Operator {
 
     public Operator(Level level) {
         this.level = level;
+        this.addButton = new JButton("Add code");
     }
 
     public void readResource(Resource resource) {
@@ -33,6 +35,15 @@ public class Operator {
         writer.println("The first line");
         writer.println("The second line");
         writer.close();
+
+        try (FileOutputStream fileOut = new FileOutputStream(resource.getResourcePath()); ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
+
+            objectOut.writeObject(resource);
+            System.out.println("Resource object has been saved.");
+        } catch (IOException e) {
+            System.err.println("Error saving the resource object: " + e.getMessage());
+        }
+
 
         return resource;
     }
