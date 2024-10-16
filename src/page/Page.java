@@ -6,6 +6,7 @@ import src.role.Visitor;
 import src.user.User;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,7 @@ public class Page extends JFrame {
         this.users.add(new Contributor());
 
         this.contentPane = new JPanel();
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
     }
+
 }

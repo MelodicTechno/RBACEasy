@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10492f55-8db9-45c7-ac95-68058873233e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/page/Page.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/user/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/access/AccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/access/AccessHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/operation/Operator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/operation/Operator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/role/Boss.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/role/Boss.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/role/Contributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/role/Contributor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/role/Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/role/Visitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RBACEasyMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Page.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +119,7 @@
       <workItem from="1728793652194" duration="3948000" />
       <workItem from="1729000731416" duration="4074000" />
       <workItem from="1729004911694" duration="118000" />
-      <workItem from="1729083713168" duration="5473000" />
+      <workItem from="1729083713168" duration="6071000" />
     </task>
     <servers />
   </component>
