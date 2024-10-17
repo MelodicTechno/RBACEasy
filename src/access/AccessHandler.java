@@ -2,6 +2,7 @@ package src.access;
 
 import src.level.Level;
 import src.operation.Operator;
+import src.page.OperationButton;
 import src.resource.Resource;
 
 import javax.swing.*;
@@ -22,6 +23,7 @@ public class AccessHandler {
     private final Operator operator;
 
     private final List<JButton> buttons;
+    private OperationButton operationButton;
 
     public AccessHandler(Level level) {
         this.level = level;
@@ -30,10 +32,10 @@ public class AccessHandler {
         String rootPath = "files";
         this.resourceRoot = String.format("%s/%s/", rootPath, level);
         this.operator = new Operator(this.level);
-        JButton addButton = new JButton("Add");
-        JButton removeButton = new JButton("Remove");
-        JButton editButton = new JButton("Edit");
-        JButton getButton = new JButton("Get");
+        JButton addButton = new JButton("Add Code");
+        JButton removeButton = new JButton("Remove Code");
+        JButton editButton = new JButton("Edit Code");
+        JButton getButton = new JButton("Get Code");
         this.buttons = new ArrayList<>();
 
         buttons.add(addButton);

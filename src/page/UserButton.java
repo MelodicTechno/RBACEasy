@@ -32,6 +32,9 @@ public class UserButton extends JButton {
         }
         super.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource(this.imagePath))));
         this.setPreferredSize(new Dimension(50, 50));
+        this.addActionListener(e -> {
+            System.out.println("level: " + this.user.getRole().getLevel() + " type: " + this.user.getRole().getRoleType());
+        });
     }
 
     public User getUser() {
@@ -41,4 +44,5 @@ public class UserButton extends JButton {
     public void setUser(User user) {
         this.user = user;
     }
+
 }

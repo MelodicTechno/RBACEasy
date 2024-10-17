@@ -7,12 +7,14 @@ import src.resource.Resource;
 public class Role {
     private final Level level;
     private final AccessHandler access;
+    private final RoleDict roleType;
 
     public String name;
 
     public Role(Level level) {
         this.level = level;
-        this.access = new AccessHandler(level);
+        this.access = new AccessHandler(this.level);
+        this.roleType = levelToRoleDict(this.level);
     }
 
     public Level getLevel() {
@@ -38,5 +40,21 @@ public class Role {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public RoleDict getRoleType() {
+        return this.roleType;
+    }
+
+    public RoleDict levelToRoleDict(Level level) {
+        if (level == Level.low) {
+            return RoleDict.Visitor;
+        }
+        else if (level == Level.middle) {
+            return RoleDict.Contributor;
+        }
+        else {
+            return RoleDict.Boss;
+        }
     }
 }
