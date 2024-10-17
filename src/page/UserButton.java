@@ -31,7 +31,7 @@ public class UserButton extends JButton {
             this.imagePath = "/images/boss.png";
         }
         super.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource(this.imagePath))));
-        this.setPreferredSize(new Dimension(50, 50));
+        this.setPreferredSize(new Dimension(5, 200));
         this.addActionListener(e -> {
             System.out.println("level: " + this.user.getRole().getLevel() + " type: " + this.user.getRole().getRoleType());
         });

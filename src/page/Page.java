@@ -5,6 +5,7 @@ import src.role.Boss;
 import src.role.Contributor;
 import src.role.Visitor;
 import src.user.User;
+import com.formdev.flatlaf.FlatDarkLaf;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -25,6 +26,7 @@ public class Page extends JFrame {
     private AccessHandler access;
 
     public Page() {
+        FlatDarkLaf.setup();
 
         this.currentUser = defaultVisitor;
 
@@ -68,6 +70,7 @@ public class Page extends JFrame {
         this.operationPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         this.operationPane.setLayout(new BoxLayout(operationPane, BoxLayout.X_AXIS));
 
+        this.setTitle("RBACEasy");
         this.setLayout (new BorderLayout ());
         this.add(BorderLayout.NORTH, contentPane);
         this.add(BorderLayout.SOUTH, operationPane);

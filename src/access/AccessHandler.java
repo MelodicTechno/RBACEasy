@@ -32,16 +32,16 @@ public class AccessHandler {
         String rootPath = "files";
         this.resourceRoot = String.format("%s/%s/", rootPath, level);
         this.operator = new Operator(this.level);
+        JButton getButton = new JButton("Get Code");
         JButton addButton = new JButton("Add Code");
         JButton removeButton = new JButton("Remove Code");
         JButton editButton = new JButton("Edit Code");
-        JButton getButton = new JButton("Get Code");
         this.buttons = new ArrayList<>();
 
+        buttons.add(getButton);
         buttons.add(addButton);
         buttons.add(removeButton);
         buttons.add(editButton);
-        buttons.add(getButton);
     }
 
     public void getAccess() {
