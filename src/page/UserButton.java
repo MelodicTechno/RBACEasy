@@ -5,6 +5,8 @@ import src.role.Visitor;
 import src.user.User;
 
 import javax.swing.*;
+import java.awt.*;
+import java.util.Objects;
 
 public class UserButton extends JButton {
 
@@ -28,7 +30,8 @@ public class UserButton extends JButton {
         else {
             this.imagePath = "/images/boss.png";
         }
-        super.setIcon(new ImageIcon(this.imagePath));
+        super.setIcon(new ImageIcon(Objects.requireNonNull(getClass().getResource(this.imagePath))));
+        this.setPreferredSize(new Dimension(50, 50));
     }
 
     public User getUser() {
